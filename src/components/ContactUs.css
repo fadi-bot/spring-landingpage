@@ -1,7 +1,6 @@
-/* File: src/components/ContactUs.css */
 .contact-us-section {
   padding: 80px 20px;
-  background-color: var(--light-color); /* Yeh line add karein */
+  background-color: var(--light-color);
 }
 
 .contact-container {
@@ -39,11 +38,9 @@
 }
 
 .contact-form {
-  flex: 1.2; /* Form ko thori zayada jagah dega */
-  /* background: #ffffff; */
+  flex: 1.2;
   padding: 40px;
   border-radius: 8px;
-  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
 }
 
 .form-group {
@@ -69,7 +66,7 @@
 .btn-submit {
   width: 100%;
   padding: 15px;
-  background-color: #28a745; /* Green color ka button */
+  background-color: #28a745;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -82,9 +79,14 @@
 .btn-submit:hover {
   background-color: #218838;
 }
-/* Media Query for smaller screens */
 @media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column; /* Items ko vertically align karega */
-  }
-}
+   .contact-container {
+     flex-direction: column;
+   }
+   .contact-us-section {
+     padding: 40px 20px;
+   }
+   .contact-info h2 {
+     font-size: 2rem;
+   }
+ }

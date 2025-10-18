@@ -1,6 +1,6 @@
-// File: src/components/Hero.jsx
+
 import React from 'react';
-import './Hero.css'; // Is file ko hum agle step mein banayenge
+import './Hero.css'; 
 
 function Hero() {
   return (

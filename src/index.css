@@ -1,11 +1,10 @@
-/* File: src/index.css */
 
 :root {
-  --primary-color: #4a7aab;  /* Aapka letterhead wala main blue */
-  --dark-color: #343a40;     /* Dark grey/blue */
-  --light-color: #e6f7ff;   /* Light grey background */
+  --primary-color: #4a7aab;  
+  --dark-color: #343a40;     
+  --light-color: #e6f7ff;   
   --white-color: #ffffff;
-  --green-color: #28a745;    /* Contact form button ke liye */
+  --green-color: #28a745;    
 }
 
 html {
@@ -19,10 +18,10 @@ html {
 }
 
 body {
-  font-family: 'Lato', sans-serif; /* Poori website ke liye default font */
+  font-family: 'Lato', sans-serif; 
   color: #333;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif; /* Sirf headings ke liye */
+  font-family: 'Montserrat', sans-serif; 
 }
