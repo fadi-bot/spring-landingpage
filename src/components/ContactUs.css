@@ -1,7 +1,7 @@
 /* File: src/components/ContactUs.css */
 .contact-us-section {
   padding: 80px 20px;
-  background-color: #f8f9fa; /* Halkay gray color ka background */
+  background-color: var(--light-color); /* Yeh line add karein */
 }
 
 .contact-container {
@@ -40,10 +40,10 @@
 
 .contact-form {
   flex: 1.2; /* Form ko thori zayada jagah dega */
-  background: #ffffff;
+  /* background: #ffffff; */
   padding: 40px;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
 }
 
 .form-group {

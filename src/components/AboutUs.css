@@ -1,7 +1,7 @@
 /* File: src/components/AboutUs.css */
 .about-us-section {
   padding: 80px 20px;
-  background-color: #ffffff;
+  background-color: var(--light-color);
 }
 
 .about-us-container {
