@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { supabase } from '../supabaseClient';
 import { useNavigate, Link } from 'react-router-dom';
 import './Auth.css';
+import GoogleAuthButton from '../components/GoogleAuthButton'; // Import the new component
 
 function SignUp() {
+  // ... (all the existing state and handleSignUp function)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -28,11 +30,11 @@ function SignUp() {
       setError("User with this email already exists.");
     } else {
       setSuccess('Success! Please check your email to verify your account.');
-      // Optional: redirect after a delay
       setTimeout(() => navigate('/login'), 3000);
     }
     setLoading(false);
   };
+
 
   return (
     <div className="auth-container">
@@ -42,7 +44,8 @@ function SignUp() {
         {error && <p className="auth-error">{error}</p>}
         {success && <p className="auth-success">{success}</p>}
         <form onSubmit={handleSignUp}>
-          <div className="form-group">
+          {/* Form groups remain the same */}
+           <div className="form-group">
             <label htmlFor="email">Email Address</label>
             <input
               type="email"
@@ -67,6 +70,8 @@ function SignUp() {
             {loading ? 'Signing Up...' : 'Sign Up'}
           </button>
         </form>
+        <div className="auth-divider">OR</div>
+        <GoogleAuthButton />
          <p className="auth-switch">
           Already have an account? <Link to="/login">Login</Link>
         </p>

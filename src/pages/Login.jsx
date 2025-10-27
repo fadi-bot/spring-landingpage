@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { supabase } from '../supabaseClient';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
+import toast from 'react-hot-toast'; // <-- Import toast
 import './Auth.css';
+import GoogleAuthButton from '../components/GoogleAuthButton';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -11,7 +13,6 @@ function Login() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Get the page the user was trying to access before being sent to login
   const from = location.state?.from?.pathname || "/";
 
   const handleLogin = async (e) => {
@@ -27,7 +28,7 @@ function Login() {
     if (error) {
       setError(error.message);
     } else {
-      // On successful login, navigate to the intended page or the homepage
+      toast.success('Successfully logged in!'); // <-- Show success toast
       navigate(from, { replace: true });
     }
     setLoading(false);
@@ -40,6 +41,7 @@ function Login() {
         <p>Welcome back! Please enter your details.</p>
         {error && <p className="auth-error">{error}</p>}
         <form onSubmit={handleLogin}>
+          {/* Form groups remain the same */}
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
             <input
@@ -64,6 +66,8 @@ function Login() {
             {loading ? 'Logging In...' : 'Login'}
           </button>
         </form>
+        <div className="auth-divider">OR</div>
+        <GoogleAuthButton />
         <p className="auth-switch">
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </p>
