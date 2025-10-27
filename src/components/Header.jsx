@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
+import toast from 'react-hot-toast'; // <-- Import toast
 import './Header.css';
 import logoImage from '../assets/logo.jpg';
 
@@ -10,6 +11,7 @@ function Header({ session }) {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
+    toast.success('Successfully logged out!'); // <-- Show success toast
     setIsMenuOpen(false);
     navigate('/'); // Redirect to homepage after logout
   };

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast'; // <-- Import Toaster
 import { supabase } from './supabaseClient';
 import './App.css';
 
@@ -12,7 +13,7 @@ import ContactUs from './components/ContactUs';
 import Products from './components/Products';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import ProtectedRoute from './components/ProtectedRoute'; // <-- Import the new component
+import ProtectedRoute from './components/ProtectedRoute';
 
 // Layout for pages with Header and Footer
 function Layout({ children, session }) {
@@ -52,24 +53,44 @@ function App() {
   }, []);
 
   return (
-    <Routes>
-      {/* Public Routes */}
-      <Route path="/" element={<Layout session={session}><HomePage /></Layout>} />
-      <Route path="/login" element={<Layout session={session}><Login /></Layout>} />
-      <Route path="/signup" element={<Layout session={session}><SignUp /></Layout>} />
-
-      {/* Protected Route */}
-      <Route
-        path="/products"
-        element={
-          <Layout session={session}>
-            <ProtectedRoute session={session}>
-              <Products />
-            </ProtectedRoute>
-          </Layout>
-        }
+    <> {/* Use a fragment to wrap everything */}
+      <Toaster // <-- Add the Toaster component here
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#333',
+            color: '#fff',
+            fontSize: '16px',
+          },
+          success: {
+            duration: 3000,
+            theme: {
+              primary: 'green',
+              secondary: 'black',
+            },
+          },
+        }}
       />
-    </Routes>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<Layout session={session}><HomePage /></Layout>} />
+        <Route path="/login" element={<Layout session={session}><Login /></Layout>} />
+        <Route path="/signup" element={<Layout session={session}><SignUp /></Layout>} />
+
+        {/* Protected Route */}
+        <Route
+          path="/products"
+          element={
+            <Layout session={session}>
+              <ProtectedRoute session={session}>
+                <Products />
+              </ProtectedRoute>
+            </Layout>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 

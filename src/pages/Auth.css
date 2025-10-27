@@ -1,36 +1,48 @@
+/* === Main Auth Container === */
+/* We use the light blue color from your theme for a cohesive background */
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 200px); /* Adjust based on header/footer height */
-  padding: 40px 20px;
-  background-color: #f8f9fa;
+  min-height: calc(100vh - 160px); /* Adjusted for header/footer */
+  padding: 50px 20px;
+  background-color: var(--light-color);
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232e3486' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
+/* === Auth Card Styling === */
+/* A softer shadow and smoother transitions make it feel more premium */
 .auth-card {
   background: var(--white-color);
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 450px;
   text-align: center;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
 }
 
+/* === Typography === */
 .auth-card h2 {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 700;
   color: var(--dark-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .auth-card p {
   color: #6c757d;
   margin-bottom: 2rem;
+  font-size: 1rem;
 }
 
+/* === Form Elements Styling === */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   text-align: left;
 }
 
@@ -39,27 +51,37 @@
   margin-bottom: 8px;
   font-weight: 600;
   color: #495057;
+  font-size: 0.9rem;
 }
 
 .form-group input {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border: 1px solid #ced4da;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Style for when the user clicks into an input field */
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(46, 52, 134, 0.15);
+}
+
+/* === Button Styling === */
 .btn-auth {
   width: 100%;
   padding: 15px;
   background-color: var(--primary-color);
   color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .btn-auth:disabled {
@@ -68,34 +90,68 @@
 }
 
 .btn-auth:hover:not(:disabled) {
-  opacity: 0.9;
+  background-color: #252a6a; /* A slightly darker shade for hover */
+  transform: translateY(-2px);
+}
+
+/* === Error & Success Messages === */
+.auth-error, .auth-success {
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  text-align: left;
 }
 
 .auth-error {
-  color: #dc3545;
+  color: #842029;
   background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 1rem;
+  border: 1px solid #f5c2c7;
 }
 
 .auth-success {
-    color: #155724;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 1rem;
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border: 1px solid #badbcc;
 }
 
+/* === Link to switch between Login/Sign Up === */
 .auth-switch {
   margin-top: 1.5rem;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .auth-switch a {
   color: var(--primary-color);
   font-weight: bold;
   text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* === "OR" Divider === */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #adb5bd;
+  margin: 25px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.auth-divider:not(:empty)::before {
+  margin-right: 1em;
+}
+
+.auth-divider:not(:empty)::after {
+  margin-left: 1em;
 }
