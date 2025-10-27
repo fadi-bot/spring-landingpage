@@ -31,9 +31,9 @@ function Header({ session }) {
 
         <div className={isMenuOpen ? "nav-links mobile-menu-open" : "nav-links"}>
           <div className="nav-center">
-            <Link to="/#about" onClick={() => setIsMenuOpen(false)}>About Us</Link>
+            <a href="/#about" onClick={() => setIsMenuOpen(false)}>About Us</a>
             <Link to="/products" onClick={() => setIsMenuOpen(false)}>Products</Link>
-            <Link to="/#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
+            <a href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</a>
           </div>
           <div className="nav-right">
             {session ? (
