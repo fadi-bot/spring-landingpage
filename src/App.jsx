@@ -1,21 +1,75 @@
-
-
+import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { supabase } from './supabaseClient';
 import './App.css';
+
+// Component & Page Imports
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
-import Footer from './components/Footer';
+import Products from './components/Products';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import ProtectedRoute from './components/ProtectedRoute'; // <-- Import the new component
 
-function App() {
+// Layout for pages with Header and Footer
+function Layout({ children, session }) {
   return (
     <div className="App">
-      <Header />
+      <Header session={session} />
+      <main>{children}</main>
+      <Footer />
+    </div>
+  );
+}
+
+// The main landing page component
+function HomePage() {
+  return (
+    <>
       <Hero />
       <AboutUs />
       <ContactUs />
-      <Footer />
-    </div>
+    </>
+  );
+}
+
+function App() {
+  const [session, setSession] = useState(null);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  return (
+    <Routes>
+      {/* Public Routes */}
+      <Route path="/" element={<Layout session={session}><HomePage /></Layout>} />
+      <Route path="/login" element={<Layout session={session}><Login /></Layout>} />
+      <Route path="/signup" element={<Layout session={session}><SignUp /></Layout>} />
+
+      {/* Protected Route */}
+      <Route
+        path="/products"
+        element={
+          <Layout session={session}>
+            <ProtectedRoute session={session}>
+              <Products />
+            </ProtectedRoute>
+          </Layout>
+        }
+      />
+    </Routes>
   );
 }
 

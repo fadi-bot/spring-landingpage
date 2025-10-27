@@ -11,8 +11,8 @@ function ContactUs() {
           <p>Have a question or need a quote? Fill out the form or contact us directly through the details provided. We are here to help!</p>
           <ul className="info-list">
             <li><strong>Email:</strong> Info.spring119@gmail.com</li>
-            <li><strong>Phone:</strong> +923315848484           </li>
-            <li><strong>Address:</strong> House#119, St.02, BlockJ, Gulberg Greens Residencia</li>
+            <li><strong>Phone:</strong> +92 331 584 8484 | +92 347 790 3459</li>
+            <li><strong>Address:</strong> House # 119, St. 02, Block J, Gulberg Greens Residencia</li>
           </ul>
         </div>
         <div className="contact-form">
