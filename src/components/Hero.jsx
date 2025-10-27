@@ -1,14 +1,16 @@
-
 import React from 'react';
-import './Hero.css'; 
+import { Link } from 'react-router-dom';
+import './Hero.css';
 
 function Hero() {
   return (
     <section className="hero-section">
       <div className="hero-content">
-        <h1>High-Quality PPE & General Supplies Delivered</h1>
-        <p>Your trusted source for safety equipment and essential items. Fast, reliable, and professional.</p>
-        <button className="btn-primary">Browse Products</button>
+        <h1>Where Experience Meets Innovation</h1>
+        <p>Your strategic partner in industrial procurement, turning supply into a competitive advantage.</p>
+        <Link to="/products" className="btn-primary">
+          Browse Our Offerings
+        </Link>
       </div>
     </section>
   );

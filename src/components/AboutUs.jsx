@@ -7,14 +7,18 @@ function AboutUs() {
     <section id="about" className="about-us-section">
       <div className="about-us-container">
         <div className="about-text">
-          <h2>About Our Company</h2>
-          <h3>Your Premier Partner in Safety & General Supplies</h3>
+          <h2>About Us</h2>
+          <h3>Smart, Reliable, and Efficient Industrial Procurement Solutions</h3>
           <p>
-            We are dedicated to providing top-tier Personal Protective Equipment (PPE) and a wide range of general supply items. Our mission is to ensure the safety and well-being of your workforce and projects with reliable products and exceptional service.
+            Though newly established, our company is backed by a team of industry experts with years of proven experience and a strong reputation for credibility and service excellence. We are driven by a bold vision to modernize procurement practices and bring value-driven solutions to our clients. With a focus on quality, innovation, and long-term partnerships, we aim to become a trusted name across industrial sectors.
+          </p>
+          <h3>Our Story</h3>
+          <p>
+            Spring Int Traders Pvt. Ltd. was founded by a group of highly experienced professionals with a shared vision to transform the industrial procurement landscape. Drawing on years of hands-on expertise and industry insight, our team is committed to setting new standards in reliability, service, and customer satisfaction.
           </p>
         </div>
         <div className="about-image">
-          <img src={aboutImage} alt="Team working with safety equipment" />
+          <img src={aboutImage} alt="Industrial procurement and supplies" />
         </div>
       </div>
     </section>
