@@ -40,8 +40,8 @@ function Header({ session }) {
               <button onClick={handleLogout} className="btn btn-signup">Logout</button>
             ) : (
               <>
-                <Link to="/login" className="btn btn-login" onClick={() => setIsMenuOpen(false)}>Login</Link>
-                <Link to="/signup" className="btn btn-signup" onClick={() => setIsMenuOpen(false)}>Sign Up</Link>
+                <Link to="/auth" className="btn btn-login" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                <Link to="/auth" className="btn btn-signup" onClick={() => setIsMenuOpen(false)}>Sign Up</Link>
               </>
             )}
           </div>

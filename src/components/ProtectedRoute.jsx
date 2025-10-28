@@ -8,7 +8,7 @@ function ProtectedRoute({ session, children }) {
     // If there is no active session, redirect the user to the login page.
     // We also pass the current location in the state, so we can redirect
     // back to this page after a successful login.
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <Navigate to="/auth" state={{ from: location }} replace />;
   }
 
   // If there is an active session, render the child component (the protected page).
