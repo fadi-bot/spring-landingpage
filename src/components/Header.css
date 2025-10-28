@@ -1,142 +1,230 @@
+/* === Main Header Bar === */
 .main-header {
-  background-color: #d7dadd;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Swapped to a clean white background */
+  background-color: var(--white-color);
+  /* Increased padding for a more spacious, premium feel */
+  padding: 0.75rem 2.5rem;
+  /* A soft, professional shadow */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   width: 100%;
-  overflow: visible;
+  /* Modern sticky header that follows the user */
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid #e9ecef;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  /* Constrain the width for a professional look on large screens */
+  max-width: 1200px;
+  margin: 0 auto; /* Center the navbar content */
 }
 
+/* === Logo Styling === */
 .logo img {
-  height: 70px;
+  /* Simplified logo sizing, no negative margins */
+  height: 60px;
   width: auto;
   display: block;
+  transition: transform 0.2s ease;
 }
 
-.nav-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: black;
-
-  border: 1.5px solid var(--dark-color); 
-  border-radius: 50px; 
-  padding: 4px 10px; 
-  
-  display: flex;
-  gap: 16px; 
+.logo img:hover {
+  transform: scale(1.03);
 }
 
-.nav-center a {
-  margin: 0; 
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.nav-center a:hover {
-  color: var(--primary-color);
-}
-
-.nav-right {
-  display: flex;
-}
-
-.btn {
-  padding: 0.4rem 0.8rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 10px;
-  font-weight: bold;
-}
-
-.btn-login {
-  background-color: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-.btn-signup {
-  background-color: var(--primary-color);
-  color: white;
-}
-
+/* === Hamburger Menu (Mobile) === */
 .hamburger-menu {
-  display: none;
+  display: none; /* Hidden on desktop */
   background: none;
   border: none;
   cursor: pointer;
   flex-direction: column;
   gap: 5px;
-  z-index: 10;
+  z-index: 1001; /* Must be on top of the mobile menu */
+  padding: 10px;
 }
 
 .hamburger-menu .bar {
   width: 25px;
   height: 3px;
+  /* Set bar color to be visible on the white header */
   background-color: var(--dark-color);
   border-radius: 5px;
+  transition: all 0.3s ease-in-out;
 }
 
-@media (max-width: 768px) {
-  .hamburger-menu {
-    display: flex;
+/* === Hamburger "X" Animation === */
+.hamburger-menu.is-active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger-menu.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-menu.is-active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* === Navigation Links (Desktop) === */
+/* This container holds both nav-center and nav-right */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Space between nav items and auth buttons */
+}
+
+/* Container for the page links */
+.nav-center {
+  display: flex;
+  gap: 2rem; /* Space between "About Us", "Products", etc. */
+}
+
+.nav-center a {
+  /* Change text color to be visible on white */
+  color: #495057; /* A professional, soft dark color */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s ease-in-out;
+  position: relative;
+  padding-bottom: 5px; /* Space for the underline effect */
+}
+
+/* === Professional Hover Underline Effect === */
+.nav-center a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  transform: scaleX(0); /* Start hidden */
+  transform-origin: bottom left;
+  transition: transform 0.3s ease;
+}
+
+.nav-center a:hover,
+.nav-center a:focus {
+  color: var(--dark-color);
+}
+
+.nav-center a:hover::after {
+  transform: scaleX(1); /* Show underline on hover */
+  transform-origin: bottom left;
+}
+
+/* === Auth Buttons (Desktop) === */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid transparent;
+  border-radius: 8px; /* Slightly more modern border-radius */
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none; /* For <Link> components */
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+/* Ghost button style */
+.btn-login {
+  background-color: transparent;
+  border-color: #ced4da; /* A neutral border */
+  color: var(--dark-color);
+}
+
+.btn-login:hover {
+  background-color: #f8f9fa; /* Slight background on hover */
+  border-color: var(--dark-color);
+  color: var(--dark-color);
+}
+
+/* Primary button style */
+.btn-signup {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border-color: var(--primary-color);
+}
+
+.btn-signup:hover {
+  background-color: #252a6a; /* Darken primary color */
+  border-color: #252a6a;
+  transform: translateY(-2px); /* Add a subtle lift */
+  box-shadow: 0 4px 10px rgba(46, 52, 134, 0.2);
+}
+
+/* === Mobile Menu Styles === */
+@media (max-width: 820px) {
+  .main-header {
+    padding: 0.75rem 1.5rem; /* Adjust padding for mobile */
   }
+
   .logo img {
-    margin-top: 0; /* reset on mobile for safer layout */
+    height: 50px; /* Smaller logo on mobile */
   }
-  
-  .nav-center {
-    position: static;
-    transform: none;
-    border: none;
-    padding: 0;
-    gap: 25px;
-    flex-direction: column;
-    align-items: center;
-    background: transparent; /* remove desktop black pill */
-    border-radius: 0;
+
+  .hamburger-menu {
+    display: flex; /* Show hamburger */
   }
-  .nav-center a {
-    color: var(--dark-color); /* readable on white sheet */
-    padding: 10px 0;
-  }
-  
+
   .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
+    display: flex; /* Always flex for positioning */
+    position: fixed; /* Use fixed for full-screen overlay */
+    top: 0;
     left: 0;
     width: 100%;
+    height: 100vh; /* Full screen height */
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Center content vertically */
     background-color: var(--white-color);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    gap: 25px;
-    z-index: 1000; /* sit above page content */
+    padding: 2rem;
+    gap: 2.5rem;
+    /* Animate the menu sliding in */
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
   }
 
   .nav-links.mobile-menu-open {
-    display: flex;
+    transform: translateX(0); /* Slide in from the right */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-center {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .nav-center a {
+    font-size: 1.5rem; /* Make links much larger */
+  }
+
+  .nav-center a::after {
+    display: none; /* Disable underline effect on mobile */
   }
 
   .nav-right {
     flex-direction: column;
-    gap: 15px;
-    width: 100%;
+    gap: 1.5rem;
+    width: 90%;
+    max-width: 300px;
+    margin-top: 1rem;
   }
 
   .nav-right .btn {
     width: 100%;
-    margin-left: 0;
+    padding: 1rem;
+    font-size: 1.2rem;
   }
 }

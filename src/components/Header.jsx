@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
-import toast from 'react-hot-toast'; // <-- Import toast
-import './Header.css';
+import toast from 'react-hot-toast';
+import './Header.css'; // This is the file we will update next
 import logoImage from '../assets/logo.jpg';
 
 function Header({ session }) {
@@ -11,7 +11,7 @@ function Header({ session }) {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    toast.success('Successfully logged out!'); // <-- Show success toast
+    toast.success('Successfully logged out!');
     setIsMenuOpen(false);
     navigate('/'); // Redirect to homepage after logout
   };
@@ -19,11 +19,16 @@ function Header({ session }) {
   return (
     <header className="main-header">
       <nav className="navbar">
-        <Link to="/" className="logo">
+        <Link to="/" className="logo" onClick={() => setIsMenuOpen(false)}>
           <img src={logoImage} alt="Company Logo" />
         </Link>
 
-        <button className="hamburger-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        {/* Updated this button to include the 'is-active' class for animation */}
+        <button
+          className={isMenuOpen ? "hamburger-menu is-active" : "hamburger-menu"}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
           <div className="bar"></div>
           <div className="bar"></div>
           <div className="bar"></div>
@@ -31,9 +36,9 @@ function Header({ session }) {
 
         <div className={isMenuOpen ? "nav-links mobile-menu-open" : "nav-links"}>
           <div className="nav-center">
-            <a href="/#about" onClick={() => setIsMenuOpen(false)}>About Us</a>
+            <Link to="/#about" onClick={() => setIsMenuOpen(false)}>About Us</Link>
             <Link to="/products" onClick={() => setIsMenuOpen(false)}>Products</Link>
-            <a href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</a>
+            <Link to="/#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
           </div>
           <div className="nav-right">
             {session ? (
