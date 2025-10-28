@@ -14,6 +14,7 @@ import Products from './components/Products';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import ProtectedRoute from './components/ProtectedRoute';
+import AuthPage from './pages/AuthPage';
 
 // Layout for pages with Header and Footer
 function Layout({ children, session }) {
@@ -75,8 +76,7 @@ function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Layout session={session}><HomePage /></Layout>} />
-        <Route path="/login" element={<Layout session={session}><Login /></Layout>} />
-        <Route path="/signup" element={<Layout session={session}><SignUp /></Layout>} />
+        <Route path="/auth" element={<Layout session={session}><AuthPage /></Layout>} />
 
         {/* Protected Route */}
         <Route
