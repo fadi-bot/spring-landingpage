@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast'; // <-- Import Toaster
+import { Toaster } from 'react-hot-toast';
 import { supabase } from './supabaseClient';
 import './App.css';
+
+// AOS Imports
+import Aos from 'aos'; // <-- YEH ADD KAREIN
+import 'aos/dist/aos.css'; // <-- YEH ADD KAREIN
 
 // Component & Page Imports
 import Header from './components/Header';
@@ -51,9 +55,18 @@ function App() {
     return () => subscription.unsubscribe();
   }, []);
 
+  // <-- YEH ADD KAREIN: AOS initialization
+  useEffect(() => {
+    Aos.init({
+      duration: 1000, // Animation ki speed (1 second)
+      once: true,      // Animation sirf ek baar chalega
+      offset: 100,     // 100px scroll karne par trigger hoga
+    });
+  }, []);
+
   return (
     <> {/* Use a fragment to wrap everything */}
-      <Toaster // <-- Add the Toaster component here
+      <Toaster // ... props
         position="top-right"
         toastOptions={{
           duration: 3000,

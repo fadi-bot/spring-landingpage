@@ -78,7 +78,7 @@
 
 /* Container for the page links */
 .nav-center {
-  display: flex;
+  display:flex;
   gap: 2rem; /* Space between "About Us", "Products", etc. */
 }
 

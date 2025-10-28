@@ -6,7 +6,8 @@ function AboutUs() {
   return (
     <section id="about" className="about-us-section">
       <div className="about-us-container">
-        <div className="about-text">
+        {/* Yahan 'data-aos' add karein */}
+        <div className="about-text" data-aos="fade-right">
           <h2>About Us</h2>
           <h3>Smart, Reliable, and Efficient Industrial Procurement Solutions</h3>
           <p>
@@ -17,7 +18,8 @@ function AboutUs() {
             Spring Int Traders Pvt. Ltd. was founded by a group of highly experienced professionals with a shared vision to transform the industrial procurement landscape. Drawing on years of hands-on expertise and industry insight, our team is committed to setting new standards in reliability, service, and customer satisfaction.
           </p>
         </div>
-        <div className="about-image">
+        {/* Yahan 'data-aos' add karein */}
+        <div className="about-image" data-aos="fade-left">
           <img src={aboutImage} alt="Industrial procurement and supplies" />
         </div>
       </div>

@@ -120,7 +120,8 @@ function Hero() {
   return (
     <section className="hero-section">
       <canvas ref={canvasRef} className="hero-canvas" />
-      <div className="hero-content">
+      {/* YAHAN DEKHEIN: data-aos attribute add kar diya hai */}
+      <div className="hero-content" data-aos="fade-down">
         <h1>Where Experience Meets Innovation</h1>
         <p>Your strategic partner in industrial procurement, turning supply into a competitive advantage.</p>
         <Link to="/products" className="btn-primary">

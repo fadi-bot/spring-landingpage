@@ -4,7 +4,8 @@ import './ContactUs.css';
 
 function ContactUs() {
   return (
-    <section id="contact" className="contact-us-section">
+    // Main section par 'data-aos' add karein
+    <section id="contact" className="contact-us-section" data-aos="fade-up">
       <div className="contact-container">
         <div className="contact-info">
           <h2>Get In Touch</h2>
