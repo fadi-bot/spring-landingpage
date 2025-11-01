@@ -58,6 +58,7 @@ function Hero() {
         const points = new THREE.Points(geometry, material);
         scene.add(points);
 
+        /* Three.js animation disabled per request
         const animate = () => {
           animationId = requestAnimationFrame(animate);
           const attr = geometry.getAttribute('position');
@@ -77,6 +78,7 @@ function Hero() {
           renderer.render(scene, camera);
         };
         animate();
+        */
 
         // Observe container resize (handles responsive hero height)
         resizeObserver = new ResizeObserver(() => setSize());
