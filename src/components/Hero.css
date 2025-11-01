@@ -1,4 +1,9 @@
  .hero-section {
+  background-image: url('../assets/photo1.jpg');
+  background-size: cover;
+  background-position: center;
+
+  background-blend-mode: multiply;
   background-color:rgba(15, 73, 235, 0.432);
   padding: 80px 20px;
   text-align: center;
@@ -27,13 +32,13 @@
 .hero-content h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--dark-color);
+  color: white;
   margin-bottom: 1rem;
 }
 
 .hero-content p {
   font-size: 1.25rem;
-  color: #6c757d;
+  color: #ffffff;
   max-width: 600px;
   margin: 0 auto 2rem auto;
 }
