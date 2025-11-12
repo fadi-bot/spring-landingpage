@@ -1,6 +1,14 @@
+/* Products section with dark background to match Team section */
 .products-section {
   padding: 80px 20px;
-  background-color: rgba(15, 73, 235, 0.432);
+  color: var(--text-light);
+}
+
+/* Override any background classes */
+.products-section.bg-light,
+.products-section.bg-white {
+  background-color: var(--dark-color) !important;
+  color: var(--text-light);
 }
 
 .products-container {
@@ -12,13 +20,13 @@
 .products-title {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--dark-color);
+  color: var(--white-color) !important;
   margin-bottom: 1rem;
 }
 
 .products-subtitle {
   font-size: 1.25rem;
-  color: #6c757d;
+  color: var(--text-light);
   max-width: 700px;
   margin: 0 auto 3rem auto;
 }
@@ -29,26 +37,29 @@
   gap: 30px;
 }
 
+/* UPDATED: Cards are white to contrast light-grey bg */
 .category-card {
-  background-color: var(--white-color);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   padding: 30px;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid var(--primary-color);
+  color: var(--text-light);
 }
 
 .category-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .category-name {
   font-size: 1.75rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid #e9ecef;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 1rem;
 }
 
@@ -59,7 +70,7 @@
 
 .product-list li {
   font-size: 1rem;
-  color: #495057;
+  color: var(--text-light);
   margin-bottom: 0.75rem;
   padding-left: 1.5rem;
   position: relative;
@@ -67,7 +78,7 @@
 
 .product-list li::before {
   content: '✓';
-  color: var(--green-color);
+  color: var(--primary-color); /* Checkmark color */
   font-weight: bold;
   position: absolute;
   left: 0;

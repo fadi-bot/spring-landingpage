@@ -1,28 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
-import { supabase } from './supabaseClient';
 import './App.css';
 
 // AOS Imports
-import Aos from 'aos'; // <-- YEH ADD KAREIN
-import 'aos/dist/aos.css'; // <-- YEH ADD KAREIN
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 // Component & Page Imports
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
-import ContactUs from './components/ContactUs';
+// import ContactUs from './components/ContactUs'; // <-- REMOVED
 import Products from './components/Products';
-import ProtectedRoute from './components/ProtectedRoute';
-import AuthPage from './pages/AuthPage';
+import Team from './components/Team';
 
 // Layout for pages with Header and Footer
-function Layout({ children, session }) {
+function Layout({ children }) {
   return (
     <div className="App">
-      <Header session={session} />
+      <Header />
       <main>{children}</main>
       <Footer />
     </div>
@@ -35,73 +32,36 @@ function HomePage() {
     <>
       <Hero />
       <AboutUs />
-      <ContactUs />
+      <Team />
+      {/* <ContactUs /> */} {/* <-- REMOVED */}
     </>
   );
 }
 
 function App() {
-  const [session, setSession] = useState(null);
-
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-    });
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  // <-- YEH ADD KAREIN: AOS initialization
   useEffect(() => {
     Aos.init({
-      duration: 1000, // Animation ki speed (1 second)
-      once: true,      // Animation sirf ek baar chalega
-      offset: 100,     // 100px scroll karne par trigger hoga
+      duration: 1000,
+      once: true,
+      offset: 100,
     });
   }, []);
 
   return (
-    <> {/* Use a fragment to wrap everything */}
-      <Toaster // ... props
-        position="top-right"
-        toastOptions={{
-          duration: 3000,
-          style: {
-            background: '#333',
-            color: '#fff',
-            fontSize: '16px',
-          },
-          success: {
-            duration: 3000,
-            theme: {
-              primary: 'green',
-              secondary: 'black',
-            },
-          },
-        }}
-      />
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<Layout session={session}><HomePage /></Layout>} />
-        <Route path="/auth" element={<Layout session={session}><AuthPage /></Layout>} />
+    <Routes>
+      {/* Public Routes */}
+      <Route path="/" element={<Layout><HomePage /></Layout>} />
 
-        {/* Protected Route */}
-        <Route
-          path="/products"
-          element={
-            <Layout session={session}>
-              <ProtectedRoute session={session}>
-                <Products />
-              </ProtectedRoute>
-            </Layout>
-          }
-        />
-      </Routes>
-    </>
+      {/* Products route is now public */}
+      <Route
+        path="/products"
+        element={
+          <Layout>
+            <Products />
+          </Layout>
+        }
+      />
+    </Routes>
   );
 }
 
