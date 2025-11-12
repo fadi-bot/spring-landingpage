@@ -1,10 +1,21 @@
-
+/*
+  === PDF-MATCHED COLOR PALETTE ===
+  --primary-color: The strong blue from the logo.
+  --dark-color: The very dark grey/black for dark sections and text (from PDF footer).
+  --light-color: The light grey background used on most PDF pages.
+  --white-color: Pure white, used for cards and headers to contrast the light-grey.
+  --text-dark: The darkest text color, same as --dark-color.
+  --text-muted: The standard paragraph text color (a lighter grey).
+  --text-light: The light grey text used on dark backgrounds (from PDF footer).
+*/
 :root {
-  --primary-color: #2e3486;  
-  --dark-color: #343a40;     
-  --light-color: #e6f7ff;   
+  --primary-color: #2e3486;
+  --dark-color: #212529;
+  --light-color: #f8f9fa;
   --white-color: #ffffff;
-  --green-color: #28a745;    
+  --text-dark: #212529;
+  --text-muted: #6c757d;
+  --text-light: #adb5bd;
 }
 
 html {
@@ -17,11 +28,51 @@ html {
   box-sizing: border-box;
 }
 
+/* UPDATED: Default background is now the PDF's light grey */
 body {
-  font-family: 'Lato', sans-serif; 
-  color: #333;
+  font-family: 'Lato', sans-serif;
+  color: var(--text-muted);
+  background-color: var(--light-color); /* Not pure white */
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif; 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+/* UPDATED: Added uppercase to match PDF headings */
+h1, h2, h3 {
+  text-transform: uppercase;
+}
+
+p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+section {
+  padding: 80px 20px;
+}
+
+/* Helper classes to control the alternating PDF theme */
+section.bg-white {
+  background-color: var(--white-color);
+}
+section.bg-light {
+  background-color: var(--light-color);
+}
+section.bg-dark {
+  background-color: var(--dark-color);
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 20px;
+  }
 }

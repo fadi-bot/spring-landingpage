@@ -1,13 +1,14 @@
- .hero-section {
+.hero-section {
   background-image: url('../assets/photo1.jpg');
   background-size: cover;
   background-position: center;
 
-  background-blend-mode: multiply;
-  background-color:rgba(15, 73, 235, 0.432);
-  padding: 80px 20px;
+  /* UPDATED: Dark theme to match PDF cover */
+  background-blend-mode: overlay; /* Blends image with the dark color */
+  background-color: var(--dark-color);
+  padding: 100px 20px;
   text-align: center;
-  min-height: 400px;
+  min-height: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,22 +28,29 @@
 .hero-content {
   position: relative;
   z-index: 1;
+  max-width: 800px;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
-  color: white;
+  /* UPDATED: Text color for dark background */
+  color: var(--white-color);
   margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 
 .hero-content p {
   font-size: 1.25rem;
-  color: #ffffff;
+  /* UPDATED: Text color for dark background */
+  color: var(--white-color);
+  opacity: 0.9;
   max-width: 600px;
   margin: 0 auto 2rem auto;
+  font-weight: 600;
 }
 
+/* Button style is already correct from last update */
 .btn-primary {
   background-color: var(--primary-color);
   color: var(--white-color);
@@ -53,19 +61,22 @@
   border-radius: 5px;
   cursor: pointer;
   text-transform: uppercase;
-  transition: background-color 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
 }
 
 .btn-primary:hover {
   opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
    .hero-section {
-     padding: 60px 20px; 
+     padding: 80px 20px; 
    }
    .hero-content h1 {
-     font-size: 2rem; 
+     font-size: 2.2rem; 
    }
    .hero-content p {
      font-size: 1rem;

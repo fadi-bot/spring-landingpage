@@ -4,23 +4,13 @@ import './Products.css';
 // Product and service categories from your company profile
 const categories = [
   {
-    name: 'Construction & Building Materials',
+    name: 'Personal Protective Equipment (PPE)',
     items: [
-      'Cement, steel bars, and iron structures',
-      'Plumbing and piping systems',
-      'Sanitary fittings, tiles, and fixtures',
-      'Paints, sealants, adhesives',
-      'Aluminum, wood, and glass materials'
-    ]
-  },
-  {
-    name: 'Office & Commercial Supplies',
-    items: [
-      'Office furniture and modular fittings',
-      'Stationery, paper products, and packaging',
-      'Cleaning, hygiene, and janitorial supplies',
-      'Kitchen and pantry equipment',
-      'IT peripherals and electronics'
+      'Safety Shoes - Impact- and slip-resistant footwear',
+      'Safety Gloves - For grip and protection against cuts, chemicals, and heat',
+      'Safety Helmets - High-strength head protection',
+      'Reflective Safety Jackets - High-visibility gear for all conditions',
+      'Magnifiers & Inspection Tools - Precision tools for accuracy'
     ]
   },
   {
@@ -65,7 +55,8 @@ const categories = [
 
 function Products() {
   return (
-    <section className="products-section">
+    // UPDATED: Use light background class
+    <section className="products-section bg-light">
       <div className="products-container">
         <h1 className="products-title">Our Products & Services</h1>
         <p className="products-subtitle">
@@ -73,7 +64,7 @@ function Products() {
         </p>
         <div className="category-grid">
           {categories.map(category => (
-            <div key={category.name} className="category-card">
+            <div key={category.name} className="category-card" data-aos="fade-up">
               <h3 className="category-name">{category.name}</h3>
               <ul className="product-list">
                 {category.items.map(item => (
