@@ -57,7 +57,7 @@
 .category-name {
   font-size: 1.75rem;
   font-weight: 600;
-  color: var(--primary-color) !important;
+  color:white;
   margin-bottom: 1.5rem;
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 1rem;
