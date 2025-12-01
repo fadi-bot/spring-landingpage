@@ -1,21 +1,34 @@
 /*
-  === PDF-MATCHED COLOR PALETTE ===
-  --primary-color: The strong blue from the logo.
-  --dark-color: The very dark grey/black for dark sections and text (from PDF footer).
-  --light-color: The light grey background used on most PDF pages.
-  --white-color: Pure white, used for cards and headers to contrast the light-grey.
-  --text-dark: The darkest text color, same as --dark-color.
-  --text-muted: The standard paragraph text color (a lighter grey).
-  --text-light: The light grey text used on dark backgrounds (from PDF footer).
+  === SPRING PROFILE PDF EXACT COLOR MATCH ===
+  The scheme alternates between deep navy dark sections and clean light grey sections,
+  highlighted by bright cyan accents.
 */
 :root {
-  --primary-color: #2e3486;
-  --dark-color: #212529;
-  --light-color: #f8f9fa;
-  --white-color: #ffffff;
-  --text-dark: #212529;
-  --text-muted: #6c757d;
-  --text-light: #adb5bd;
+  /* The deep navy / charcoal used for dark backgrounds and main headers on light pages */
+  --primary-dark: #111821;
+
+  /* The bright cyan/electric blue used for accents, lines, and highlights */
+  --accent-cyan: #00bcd4;
+
+  /* The light grey background used on alternate pages */
+  --bg-light-grey: #f3f4f6;
+
+  /* Standard white for cards on grey backgrounds and text on dark backgrounds */
+  --white: #ffffff;
+
+  /* Text color for light backgrounds */
+  --text-dark-grey: #22252b;
+  --text-medium-grey: #6b7280;
+
+  /* Text color for dark backgrounds */
+  --text-light: #e5e7eb;
+
+  /* Footer and utility colors, mapped to the same palette */
+  --dark-color: var(--primary-dark);
+  --white-color: var(--white);
+  --primary-color: var(--accent-cyan);
+  --text-muted: #9ca3af;
+  --border-muted: #3b4252;
 }
 
 html {
@@ -28,47 +41,66 @@ html {
   box-sizing: border-box;
 }
 
-/* UPDATED: Default background is now the PDF's light grey */
 body {
   font-family: 'Lato', sans-serif;
-  color: var(--text-muted);
-  background-color: var(--light-color); /* Not pure white */
+  color: var(--text-light);
+  background-color: var(--primary-dark);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
-  color: var(--text-dark);
+  color: var(--primary-dark);
   margin-bottom: 1rem;
-}
-
-/* UPDATED: Added uppercase to match PDF headings */
-h1, h2, h3 {
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 p {
   line-height: 1.7;
   margin-bottom: 1rem;
+  color: var(--text-medium-grey);
 }
 
 section {
   padding: 80px 20px;
 }
 
-/* Helper classes to control the alternating PDF theme */
-section.bg-white {
-  background-color: var(--white-color);
-}
+/* --- Section Theme Helpers --- */
+
+/* Used for sections like About Us, Products - now dark theme variant */
 section.bg-light {
-  background-color: var(--light-color);
+  background-color: #111827; /* slightly lighter than body but still dark */
+  color: var(--text-light);
 }
+
+/* Headings and text inside dark "light" sections need light colors */
+section.bg-light h1,
+section.bg-light h2,
+section.bg-light h3,
+section.bg-light h4 {
+  color: var(--white);
+}
+
+section.bg-light p {
+  color: var(--text-light);
+}
+
+/* Used for sections like Team, Contact, Footer */
 section.bg-dark {
-  background-color: var(--dark-color);
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+}
+
+/* When inside a dark section, headings and texts need to change color */
+section.bg-dark h1,
+section.bg-dark h2,
+section.bg-dark h3,
+section.bg-dark h4 {
+  color: var(--white);
+}
+
+section.bg-dark p {
+  color: var(--text-light);
 }
 
 @media (max-width: 768px) {

@@ -1,14 +1,5 @@
-/* Products section with dark background to match Team section */
 .products-section {
-  padding: 80px 20px;
-  color: var(--text-light);
-}
-
-/* Override any background classes */
-.products-section.bg-light,
-.products-section.bg-white {
-  background-color: var(--dark-color) !important;
-  color: var(--text-light);
+  /* Background handled by bg-light */
 }
 
 .products-container {
@@ -17,79 +8,65 @@
   text-align: center;
 }
 
-.products-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--white-color) !important;
-  margin-bottom: 1rem;
-}
+/* Title style handled by section-title class in AboutUs.css (global utility now) */
 
 .products-subtitle {
-  font-size: 1.25rem;
-  color: var(--text-light);
+  font-size: 1.2rem;
   max-width: 700px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 4rem auto;
 }
 
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
 }
 
-/* UPDATED: Cards are white to contrast light-grey bg */
+/* UPDATED: Cards are white on light-grey bg */
 .category-card {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  padding: 30px;
+  background-color: var(--white);
+  border-radius: 4px;
+  /* A subtle cyan border on top */
+  border-top: 4px solid var(--accent-cyan);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 40px;
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-top: 4px solid var(--primary-color);
-  color: var(--text-light);
+  transition: all 0.3s ease;
 }
 
 .category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
 .category-name {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color:white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-dark) !important; /* force dark text inside white card */
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
 }
 
 .product-list {
   list-style: none;
-  padding: 0;
 }
 
 .product-list li {
   font-size: 1rem;
-  color: var(--text-light);
-  margin-bottom: 0.75rem;
-  padding-left: 1.5rem;
+  color: var(--text-dark-grey) !important;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
   position: relative;
 }
 
+/* UPDATED: Checkmarks are cyan */
 .product-list li::before {
   content: '✓';
-  color: var(--primary-color); /* Checkmark color */
-  font-weight: bold;
+  color: var(--accent-cyan);
+  font-weight: 900;
   position: absolute;
   left: 0;
-  top: 1px;
-}
-
-@media (max-width: 768px) {
-  .products-section {
-    padding: 60px 20px;
-  }
-  .products-title {
-    font-size: 2.5rem;
-  }
+  top: 0px;
+  font-size: 1.1rem;
 }

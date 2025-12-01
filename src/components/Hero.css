@@ -1,14 +1,16 @@
 .hero-section {
+  /* Ensure you have the photo1.jpg in your assets folder */
   background-image: url('../assets/photo1.jpg');
   background-size: cover;
   background-position: center;
 
-  /* UPDATED: Dark theme to match PDF cover */
-  background-blend-mode: overlay; /* Blends image with the dark color */
-  background-color: var(--dark-color);
+  /* UPDATED: Use the deep navy for the overlay */
+  background-color: var(--primary-dark);
+  background-blend-mode: overlay;
+  
   padding: 100px 20px;
   text-align: center;
-  min-height: 450px;
+  min-height: 550px; /* Increased height slightly for presence */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,62 +25,67 @@
   height: 100%;
   z-index: 0;
   pointer-events: none;
+  /* Optional: lower opacity if the particles are too bright against the new dark blue */
+  opacity: 0.7; 
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .hero-content h1 {
   font-size: 3.5rem;
-  font-weight: 700;
-  /* UPDATED: Text color for dark background */
-  color: var(--white-color);
-  margin-bottom: 1rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .hero-content p {
-  font-size: 1.25rem;
-  /* UPDATED: Text color for dark background */
-  color: var(--white-color);
-  opacity: 0.9;
-  max-width: 600px;
-  margin: 0 auto 2rem auto;
-  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--white);
+  opacity: 0.95;
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+  font-weight: 500;
 }
 
-/* Button style is already correct from last update */
+/* UPDATED: Button uses the cyan accent color */
 .btn-primary {
-  background-color: var(--primary-color);
-  color: var(--white-color);
+  background-color: var(--accent-cyan);
+  color: var(--primary-dark);
   border: none;
-  padding: 15px 30px;
+  padding: 18px 35px;
   font-size: 1rem;
-  font-weight: bold;
-  border-radius: 5px;
+  font-weight: 800;
+  border-radius: 2px; /* Sharper corners match PDF aesthetic */
   cursor: pointer;
   text-transform: uppercase;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease;
   text-decoration: none;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: var(--white);
+  color: var(--accent-cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
 }
 
 @media (max-width: 768px) {
    .hero-section {
-     padding: 80px 20px; 
+     padding: 80px 20px;
+     min-height: 450px;
    }
    .hero-content h1 {
-     font-size: 2.2rem; 
+     font-size: 2.2rem;
    }
    .hero-content p {
-     font-size: 1rem;
+     font-size: 1.1rem;
    }
 }
