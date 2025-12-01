@@ -41,10 +41,10 @@
 .form-group textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #495057;
+  border: 1px solid var(--border-muted);
   border-radius: 5px;
   font-size: 1rem;
-  background-color: #2c3034; /* Darker input bg */
+  background-color: var(--dark-color); /* Darker input bg matching brochure panels */
   color: var(--white-color);
 }
 
@@ -129,7 +129,7 @@
   text-align: center;
   padding: 20px 0;
   margin-top: 40px;
-  border-top: 1px solid #495057; /* Separator line */
+  border-top: 1px solid var(--border-muted); /* Separator line */
   font-size: 0.9rem;
   color: var(--text-muted);
 }

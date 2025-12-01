@@ -1,55 +1,64 @@
-/* About Us section with dark background to match Team section */
 .about-us-section {
-  padding: 80px 20px;
-  color: var(--text-light);
-}
-
-/* Override any background classes */
-.about-us-section.bg-light,
-.about-us-section.bg-white {
-  background-color: var(--dark-color) !important;
-  color: var(--text-light);
+  /* Background color set by bg-light in global css */
 }
 
 .about-us-container {
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
-  gap: 50px;
-  margin-bottom: 80px; 
+  align-items: flex-start; /* Align top */
+  gap: 60px;
+  margin-bottom: 100px;
 }
 
 .about-text {
   flex: 1;
 }
 
-.about-text h2 {
+/* ADDED: Style for main section titles to have the cyan underline */
+.section-title {
   font-size: 2.5rem;
-  font-weight: bold;
-  color: var(--white-color) !important;
+  font-weight: 800;
+  color: var(--primary-dark);
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 60px;
+  background-color: var(--accent-cyan);
+}
+
+.text-center.section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .about-text h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-}
-
-.about-text p {
-  line-height: 1.7;
-  color: var(--text-light);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .about-image {
   flex: 1;
+  position: relative;
 }
 
 .about-image img {
   width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  /* Optional: Add a cyan border accent */
+  border-bottom: 5px solid var(--accent-cyan);
 }
 
 /* --- Vision & Principles Styles --- */
@@ -57,24 +66,21 @@
   max-width: 1100px;
   margin: 0 auto;
   text-align: center;
-  color: var(--text-light);
 }
 
 .vision-text {
   max-width: 800px;
-  margin: 0 auto 50px auto;
-}
-
-.vision-text h2 {
-  font-size: 2.5rem;
-  color: var(--white-color) !important;
+  margin: 0 auto 60px auto;
 }
 
 .vision-quote {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--primary-color);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--primary-dark);
   line-height: 1.6;
+  font-style: italic;
+  position: relative;
+  padding: 20px;
 }
 
 .principles-grid {
@@ -84,54 +90,53 @@
   text-align: left;
 }
 
-.principles-grid h2 {
-  grid-column: 1 / -1; /* Span full width */
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: var(--white-color) !important;
+/* Make the "Our Guiding Principles" heading span full width and stand out on dark bg */
+.principles-grid > h2 {
+  grid-column: 1 / -1;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 10px;
 }
 
-/* UPDATED: Cards are white to contrast light-grey section */
+.full-width {
+  grid-column: 1 / -1;
+  margin-bottom: 40px;
+}
+
+/* UPDATED: Cards are pure white to contrast the light-grey background */
 .principle-card {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 30px;
-  border-radius: 10px;
-  border-left: 5px solid var(--primary-color);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  color: var(--text-light);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--white);
+  padding: 40px 30px;
+  border-radius: 4px;
+  /* Cyan accent on the left border */
+  border-left: 5px solid var(--accent-cyan);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
 }
 
 .principle-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .principle-card h4 {
-  font-size: 1.2rem;
-  color: var(--white-color);
-  text-transform: none;
+  font-size: 1.3rem;
+  color: var(--primary-dark) !important;
+  margin-bottom: 15px;
+  font-weight: 700;
 }
 
+/* Body text inside white principle cards should use dark text for readability */
 .principle-card p {
-  font-size: 0.95rem;
-  color: var(--text-light);
-  margin-bottom: 0;
+  color: var(--text-dark-grey) !important;
 }
 
 @media (max-width: 768px) {
    .about-us-container {
      flex-direction: column;
-     gap: 30px;
-     margin-bottom: 60px;
+     gap: 40px;
    }
-   .about-us-section {
-     padding: 60px 20px;
-   }
-   .about-text h2,
-   .vision-text h2,
-   .principles-grid h2 {
+   .section-title {
      font-size: 2rem;
    }
    .vision-quote {

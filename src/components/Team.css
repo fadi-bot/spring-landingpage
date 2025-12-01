@@ -1,35 +1,28 @@
-/* Team section has a dark background (set in JSX) */
 .team-section {
-  color: var(--text-light);
-}
-
-.team-container {
-  max-width: 800px; /* Narrower for focus */
-  margin: 0 auto;
+  /* Background and primary text color set by bg-dark global class */
   text-align: center;
 }
 
-.team-container h2 {
-  color: var(--white-color);
-  font-size: 2.5rem;
+.team-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.team-container h3 {
-  color: var(--primary-color);
-  font-size: 1.25rem;
+/* The heading color is handled by global section.bg-dark h2 */
+
+.accent-text {
+  /* Subheadings on dark backgrounds use the cyan accent */
+  color: var(--accent-cyan) !important;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 2rem;
   text-transform: none;
 }
 
 .team-container p {
-  color: var(--text-light);
-  line-height: 1.8;
-  font-size: 1.05rem;
-}
-
-.team-container p strong {
-  color: var(--white-color);
+  /* Text color handled by global section.bg-dark p */
+  font-size: 1.1rem;
+  opacity: 0.9;
 }
 
 .team-tags {
@@ -40,19 +33,15 @@
   flex-wrap: wrap;
 }
 
+/* UPDATED: Tags use cyan background with dark text */
 .team-tag {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-weight: 600;
+  background-color: var(--accent-cyan);
+  color: var(--primary-dark);
+  padding: 12px 25px;
+  border-radius: 2px;
+  font-weight: 700;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .team-container h2 {
-    font-size: 2rem;
-  }
+  letter-spacing: 1px;
 }
