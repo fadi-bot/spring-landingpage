@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+
 import './App.css';
 
 // AOS Imports
@@ -26,6 +27,26 @@ function Layout({ children }) {
   );
 }
 
+// Scroll to hash targets like #about or #footer-contact when the URL changes
+function ScrollToHash() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const targetId = hash.replace('#', '');
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // On any route change without a hash (e.g. /products), scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [pathname, hash]);
+
+  return null;
+}
+
 // The main landing page component
 function HomePage() {
   return (
@@ -48,20 +69,23 @@ function App() {
   }, []);
 
   return (
-    <Routes>
-      {/* Public Routes */}
-      <Route path="/" element={<Layout><HomePage /></Layout>} />
+    <>
+      <ScrollToHash />
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<Layout><HomePage /></Layout>} />
 
-      {/* Products route is now public */}
-      <Route
-        path="/products"
-        element={
-          <Layout>
-            <Products />
-          </Layout>
-        }
-      />
-    </Routes>
+        {/* Products route is now public */}
+        <Route
+          path="/products"
+          element={
+            <Layout>
+              <Products />
+            </Layout>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 

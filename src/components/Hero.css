@@ -35,6 +35,13 @@
   max-width: 900px;
 }
 
+.hero-logo {
+  height: 60px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
 .hero-content h1 {
   font-size: 3.5rem;
   font-weight: 800;

@@ -13,7 +13,7 @@ function AboutUs() {
           <p>
             At Spring Int Traders Pvt. Ltd., we specialize in delivering smart, reliable, and efficient industrial procurement solutions. Though newly established, our company is backed by a team of industry experts with years of proven experience and a strong reputation for credibility and service excellence. We are driven by a bold vision to modernize procurement practices and bring value-driven solutions to our clients. With a focus on quality, innovation, and long-term partnerships, we aim to become a trusted name across industrial sectors.
           </p>
-          <h3>Our Story</h3>
+          <h3>Our History</h3>
           <p>
             Spring Int Traders Pvt. Ltd. was founded by a group of highly experienced professionals with a shared vision to transform the industrial procurement landscape. Drawing on years of hands-on expertise and industry insight, our team is committed to setting new standards in reliability, service, and customer satisfaction. Though the company is new, our foundation is built on proven knowledge, strong ethics, and a passion for driving meaningful impact in every partnership we create.
           </p>

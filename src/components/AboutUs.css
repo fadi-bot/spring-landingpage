@@ -59,6 +59,10 @@
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   /* Optional: Add a cyan border accent */
   border-bottom: 5px solid var(--accent-cyan);
+  margin: 20px auto 0 auto;
+  filter: contrast(0.85) saturate(0.8) brightness(0.95);
+  opacity: 0.88;
+  mix-blend-mode: multiply;
 }
 
 /* --- Vision & Principles Styles --- */

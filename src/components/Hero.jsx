@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Hero.css';
+import logoImage from '../assets/logo.jpg';
 
 function Hero() {
   const canvasRef = useRef(null);
@@ -106,6 +107,7 @@ function Hero() {
 
       {/* UPDATED: Content from PDF */}
       <div className="hero-content" data-aos="fade-down">
+        <img src={logoImage} alt="Company Logo" className="hero-logo" />
         <h1>SPRING INT TRADERS PVT LTD.</h1>
         <p>WHERE EXPERIENCE MEETS INNOVATION, AND SUPPLY BECOMES STRATEGY.</p>
         <Link to="/products" className="btn-primary">
