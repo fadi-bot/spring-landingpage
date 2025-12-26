@@ -60,7 +60,7 @@ function Footer() {
               <li><strong>Phone:</strong> +92 331 584 8484</li>
               <li><strong>Phone:</strong> +92 306 584 84 84</li>
               <li><strong>Email:</strong> info.spring119@gmail.com</li>
-              <li><strong>Website:</strong> http://springtraders.org/</li>
+              <li><strong>Website:</strong> <a href="www.spring-traders.org">www.spring-traders.org</a></li>
               <li><strong>Address:</strong> House no 628 street no 8, opposite tehzeeb bakers chaklala scheme 3 Rawalpindi</li>
             </ul>
           </div>

@@ -1,10 +1,18 @@
 import React from 'react';
 import './Products.css';
 
-// Product and service categories from your company profile
+// Importing images from assets (Make sure these files exist in your assets folder)
+// If you don't have these specific files yet, the browser will show alt text.
+import ppeImg from '../assets/about-image.jpg'; // Using existing asset as example
+import electricalImg from '../assets/electrical.png'; // Using existing asset as example
+import industrialImg from '../assets/industrial.png'; 
+import fmcgImg from '../assets/fmcg.png';
+import sourcingImg from '../assets/sourcing.png';
+
 const categories = [
   {
     name: 'Personal Protective Equipment (PPE)',
+    image: ppeImg,
     items: [
       'Safety Shoes - Impact- and slip-resistant footwear',
       'Safety Gloves - For grip and protection against cuts, chemicals, and heat',
@@ -15,6 +23,7 @@ const categories = [
   },
   {
     name: 'Electrical & Power Solutions',
+    image: electricalImg,
     items: [
       'Power cables, wiring, and conduits',
       'LED lights, panels, and accessories',
@@ -25,6 +34,7 @@ const categories = [
   },
   {
     name: 'Industrial & Engineering Solutions',
+    image: industrialImg,
     items: [
       'Precision tools and hardware',
       'Machinery parts and spares',
@@ -35,6 +45,7 @@ const categories = [
   },
   {
     name: 'FMCG & Consumer Goods',
+    image: fmcgImg,
     items: [
       'Packaged food, snacks, and beverages',
       'Health and hygiene products',
@@ -44,6 +55,7 @@ const categories = [
   },
   {
     name: 'Custom Procurement & Sourcing',
+    image: sourcingImg,
     items: [
       'Bulk sourcing for government or corporate tenders',
       'End-to-end vendor and supply chain management',
@@ -55,7 +67,6 @@ const categories = [
 
 function Products() {
   return (
-    // UPDATED: Use light background class
     <section className="products-section bg-light">
       <div className="products-container">
         <h1 className="products-title">Our Products & Services</h1>
@@ -65,12 +76,19 @@ function Products() {
         <div className="category-grid">
           {categories.map(category => (
             <div key={category.name} className="category-card" data-aos="fade-up">
-              <h3 className="category-name">{category.name}</h3>
-              <ul className="product-list">
-                {category.items.map(item => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              {/* NEW: Image Section */}
+              <div className="category-image-container">
+                <img src={category.image} alt={category.name} className="category-image" />
+              </div>
+              
+              <div className="category-content">
+                <h3 className="category-name">{category.name}</h3>
+                <ul className="product-list">
+                  {category.items.map(item => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

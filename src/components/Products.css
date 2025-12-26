@@ -1,48 +1,73 @@
 .products-section {
-  /* Background handled by bg-light */
+  padding: 80px 20px;
 }
 
 .products-container {
-  max-width: 1200px;
+  max-width: 1000px; /* Reduced width slightly for better one-column readability */
   margin: 0 auto;
   text-align: center;
 }
 
-/* Title style handled by section-title class in AboutUs.css (global utility now) */
+.products-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
 
 .products-subtitle {
   font-size: 1.2rem;
   max-width: 700px;
   margin: 0 auto 4rem auto;
+  color: var(--text-light);
 }
 
+/* UPDATED: Changed to 1fr for one card per line */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: 1fr; 
   gap: 40px;
 }
 
-/* UPDATED: Cards are white on light-grey bg */
+/* UPDATED: Cards now use flex to show image and text better in a single line */
 .category-card {
   background-color: var(--white);
   border-radius: 4px;
-  /* A subtle cyan border on top */
   border-top: 4px solid var(--accent-cyan);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  padding: 40px;
+  display: flex; /* Flexbox for image/text side-by-side */
+  overflow: hidden;
   text-align: left;
   transition: all 0.3s ease;
 }
 
 .category-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* NEW: Image Styling */
+.category-image-container {
+  flex: 0 0 350px; /* Fixed width for the image part */
+  height: auto;
+  min-height: 250px;
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the area without stretching */
+}
+
+.category-content {
+  padding: 40px;
+  flex: 1;
 }
 
 .category-name {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary-dark) !important; /* force dark text inside white card */
+  color: var(--primary-dark) !important;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #eee;
@@ -60,7 +85,6 @@
   position: relative;
 }
 
-/* UPDATED: Checkmarks are cyan */
 .product-list li::before {
   content: '✓';
   color: var(--accent-cyan);
@@ -69,4 +93,16 @@
   left: 0;
   top: 0px;
   font-size: 1.1rem;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+  .category-card {
+    flex-direction: column; /* Stack image on top of text on small screens */
+  }
+  .category-image-container {
+    flex: none;
+    width: 100%;
+    height: 200px;
+  }
 }
